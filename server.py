@@ -1,12 +1,19 @@
 from flask import Flask,make_response
 from datetime import datetime
+from pytz import timezone
+
 
 app = Flask(__name__)
 
-now = datetime.now()
+
+
+now = datetime.now(timezone('America/mexico_city'))
+
+
 
 @app.route('/dayhour',methods=['GET'])
 def day_hour():
+    
     year = now.year
     month = now.month
     day = now.day
